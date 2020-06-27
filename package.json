@@ -1,0 +1,20 @@
+{
+  "name": "pg-graphql",
+  "version": "0.1.0",
+  "description": "PostgreSQL GraphQL query builders",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macintoshhelper/pg-graphql.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/macintoshhelper/pg-graphql/issues"
+  },
+  "homepage": "https://github.com/macintoshhelper/pg-graphql#readme"
+}
