@@ -11,12 +11,17 @@ const selectArgsToSql = (args, initialIndex = 0) => {
   let index = initialIndex;
   const query = [];
   const values = [];
+  // { plots: { column_name: }}
+  Object.keys(args).forEach((table) => {
+    const tableArgs = args[table];
 
-  Object.keys(args).forEach((name) => {
-    const [table, column] = name.split('.');
-    query.push(`$${index + 1}:name.$${index + 2}:name AS $${index + 3}:alias`);
-    index += 3;
-    values.push(...[table, column, args[name]]);
+    Object.keys(tableArgs).forEach((column) => {
+      const resName = tableArgs[column];
+
+      query.push(`$${index + 1}:name.$${index + 2}:name AS $${index + 3}:alias`);
+      index += 3;
+      values.push(...[table, column, resName]);
+    })
   });
 
   return {
