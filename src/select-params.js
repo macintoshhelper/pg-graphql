@@ -1,3 +1,5 @@
+const { camelToSnakeCase } = require('./utils/sql');
+
 const walkQueryParams = (args, prefix, prefixAlias = {}) =>
   Object.keys(args).reduce((acc, argKey) => {
     if (Object.values(args[argKey]).length > 0) {

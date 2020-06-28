@@ -12,6 +12,7 @@ npm i pg-graphql
 
 ```js
 const graphqlFields = require('graphql-fields');
+const { getSelectParams } = require('pg-graphql');
 
 const COLUMN_ALIAS = {
   'users.id': 'users.uuid',
