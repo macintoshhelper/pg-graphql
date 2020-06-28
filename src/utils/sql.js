@@ -45,12 +45,14 @@ const whereArgsToSql = (args, initialIndex = 0) => {
       const paramValue = String(tableParams[sqlParam]);
 
       if (!paramValue || paramValue.toLowerCase() === 'null') {
-        filter.push(`${table}.${sqlParam} IS NULL`);
+        filter.push(`$${table}:name.$${sqlParam}:name IS NULL`);
+        index += 2;
+        values.push(...[table, sqlParam]);
       } else {
         // make sure sqlParam is alphanumeric please :)
-        filter.push(`${table}.${sqlParam} = $${index + 1}`);
-        index += 1;
-        values.push(paramValue);
+        filter.push(`$${index + 1}:name.$${index + 2}:name = $${index + 3}`);
+        index += 3;
+        values.push(...[table, sqlParam, paramValue]);
       }
     });
   });
